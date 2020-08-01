@@ -1,0 +1,11 @@
+{
+  "searchPreferenceId" : "01234567",
+  "title" : "I like cheap ENGLISH non-fiction books",
+  "email": "your-email@your.company",
+  "criteria":{
+    "language": "ENGLISH",
+    "types": ["FICTION"],
+    "minimumPrice": 15.00,
+    "maximumPrice": 30.00
+  }
+}

@@ -1,0 +1,47 @@
+version: '2'
+services:
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - ./docker_data/mongo/data:/var/lib/mongodb
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.4.3
+    container_name: elasticsearch-test-640
+    environment:
+      - cluster.name=bookstore-cluster
+      - xpack.security.enabled=false
+      - http.cors.enabled=true
+      - http.cors.allow-origin=*
+      - network.host=0.0.0.0
+    ports:
+      - "9299:9299"
+      - "9399:9399"
+    expose:
+      - "9699"
+    networks:
+      - docker_elk
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.4.3
+    container_name: kibana-test-640
+    environment:
+      - SERVER_NAME=kibana.localhost
+      - ELASTICSEARCH_URL=http://elasticsearch-test-640:9699
+      - ELASTICSEARCH_USERNAME=elastic
+      - ELASTICSEARCH_HOST=elasticsearch-test-640
+      - ELASTICSEARCH_PORT=9699
+      - ELASTIC_PWD=changeme
+      - KIBANA_PWD=changeme
+    ports:
+      - "5601:5601"
+    links:
+      - elasticsearch
+    networks:
+      - docker_elk
+
+networks:
+  docker_elk:
+    driver: bridge

@@ -1,0 +1,9 @@
+{
+  "bookId" : "01234567",
+  "title":"The Girl Who Played with Fire",
+  "isbn":"1234567890",
+  "author":"Stieg Larson",
+  "price":"18.99",
+  "type":"FICTION",
+  "language":"ENGLISH"
+}
