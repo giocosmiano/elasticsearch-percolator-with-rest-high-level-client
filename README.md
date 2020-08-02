@@ -1,4 +1,4 @@
-# NOTE: This is an excerpt from [Introduction to Elasticsearch Percolator query](https://github.com/ophalsp/elasticsearch-percolator)
+# NOTE: Forked from [Introduction to Elasticsearch Percolator query](https://github.com/ophalsp/elasticsearch-percolator)
 
 # Matching documents with queries using the Elasticsearch Percolator query
 
